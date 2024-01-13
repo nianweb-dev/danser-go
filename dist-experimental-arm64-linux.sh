@@ -16,6 +16,7 @@ then
 fi
 
 bash depends/dep-libbass.sh
+bash depends/dep-libyuv.sh
 
 mkdir -p $BUILD_DIR
 
