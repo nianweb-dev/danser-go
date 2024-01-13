@@ -15,6 +15,8 @@ then
   build+='-snapshot'$2
 fi
 
+bash depends/dep-libbass.sh
+
 mkdir -p $BUILD_DIR
 
 go run tools/assets/assets.go ./ $BUILD_DIR/
@@ -30,7 +32,8 @@ gcc -no-pie --verbose -O3 -D LAUNCHER -o $BUILD_DIR/danser -I. cmain/main_danser
 
 rm $BUILD_DIR/danser-core.h
 
-go run tools/ffmpeg/ffmpeg.go $BUILD_DIR/
+# Pre-built ffmpeg is not available on the current platform.
+# go run tools/ffmpeg/ffmpeg.go $BUILD_DIR/
 
 mkdir -p $TARGET_DIR
 
